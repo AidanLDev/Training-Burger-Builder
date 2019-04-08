@@ -27,4 +27,5 @@ vscode/**
 *.iml
 out
 gen
-src/hoc/
+
+src/hoc/Aux\.js
