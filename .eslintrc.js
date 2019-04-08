@@ -22,5 +22,14 @@ module.exports = {
         "react"
     ],
     "rules": {
+        'line-comment-position': 'off',
+        'no-console': 'off',
+        'no-var': 'off',
+        'object-shorthand': 'off',
+        'prefer-template': 'off',
+        'import/no-commonjs': 'off',
+        'import/unambiguous': 'off',
+        'import/order': 'off',
+        'filenames/match-exported': 'off',
     }
 };
