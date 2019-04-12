@@ -16,7 +16,7 @@ class BurgerBuilder extends React.Component {
     return (
       <Aux>
         <Burger
-          // ingredients={this.state.ingredients}
+          ingredients={this.state.ingredients}
         />
         <div>Build Controls</div>
       </Aux>
