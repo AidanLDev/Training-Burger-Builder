@@ -87,6 +87,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4"
   }
