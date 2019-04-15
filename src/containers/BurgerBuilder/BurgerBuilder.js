@@ -1,6 +1,12 @@
+//  Packages
 import React from 'react'
-import Aux from '../../hoc/Auxilary'
 
+//  Componants
+import Aux from '../../hoc/Auxilary'
+import Modal from '../../components/UI/Modal/Modal'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
+
+//  Pages
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 
@@ -20,7 +26,8 @@ class BurgerBuilder extends React.Component {
       meat: 0,
     },
     totalPrice: 2,
-    canOrder: false
+    canOrder: false,
+    ordering: false
   }
 
   handleAddIngredients = type => {
@@ -74,6 +81,22 @@ class BurgerBuilder extends React.Component {
       })
   }
 
+  handlePurchase = () => {
+    this.setState({
+      ordering: true
+    })
+  }
+
+  handleCancelPurchase = () => {
+    this.setState({
+      ordering: false
+    })
+  }
+
+  handleContinuePurchase = () => {
+    alert('You Continue!')
+  }
+
   render () {
     const disabledInfo = {
       ...this.state.ingredients
@@ -84,6 +107,14 @@ class BurgerBuilder extends React.Component {
 
     return (
       <Aux>
+        <Modal show={this.state.ordering} modalClosed={this.handleCancelPurchase}>
+          <OrderSummary 
+            ingredients={this.state.ingredients}
+            purchaseCancled={this.handleCancelPurchase}
+            purchaseContinued={this.handleContinuePurchase}
+            price={this.state.totalPrice}
+          />
+        </Modal>
         <Burger
           ingredients={this.state.ingredients}
         />
@@ -93,6 +124,7 @@ class BurgerBuilder extends React.Component {
           disabled={disabledInfo}
           price={this.state.totalPrice}
           canOrder={this.state.canOrder}
+          ordered={this.handlePurchase}
         />
       </Aux>
     );
