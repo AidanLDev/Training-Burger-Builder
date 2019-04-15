@@ -16,3 +16,16 @@
 .toolbar nav {
     height: 100%;
 }
+
+.logo {
+    height: 100%;
+}
+
+@media (max-width: 499px) {
+    .desktopOnly {
+        display: none;
+    }
+    .toolbar {
+        padding: 0 68px;
+    }
+}
