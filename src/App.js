@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //  Components
-import Layout from './components/Layout/Layout'
+import Layout from './containers/Layout/Layout'
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder'
 //  Style
 
