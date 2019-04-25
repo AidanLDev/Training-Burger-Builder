@@ -1,5 +1,6 @@
 //  Packages
 import React from 'react'
+import axios from '../../axios-orders'
 
 //  Componants
 import Aux from '../../hoc/Auxilary'
@@ -94,7 +95,23 @@ class BurgerBuilder extends React.Component {
   }
 
   handleContinuePurchase = () => {
-    alert('You Continue!')
+    // alert('You Continue!')
+    const order = {
+      ingredients: this.state.ingredients,
+      price: this.state.totalPrice,
+      customer: {
+        name: 'Aidan Hungry',
+        address: {
+          street: 'Private',
+          postCode: 'OX1 1AL',
+          country: 'United Kningdom'
+        },
+        email: 'test@email.com'
+      }
+    }
+    axios.post('/orders.json', order)
+    .then(res => console.log(res))
+    .catch(error => console.log(error))
   }
 
   render () {
