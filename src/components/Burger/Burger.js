@@ -1,4 +1,5 @@
 import React from 'react'
+//  import { withRouter } from 'react-router-dom' //  A higher order component to give component access to router props
 
 import WithClass from '../../hoc/WithClass'
 import BurgerIngredients from './BurgerIngredients/BurgerIngredients'

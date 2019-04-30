@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'
 
 //  Components
 import Layout from './containers/Layout/Layout'
@@ -11,8 +12,10 @@ class App extends Component {
     return (
       <div>
         <Layout>
-          <BurgerBuilder />
-          <Checkout/>
+          <Switch>
+            <Route path="/checkout" component={Checkout}/>
+            <Route path="/" exact component={BurgerBuilder}/> { /* only components built via route gets props */}
+          </Switch>
         </Layout>
       </div>
     );
