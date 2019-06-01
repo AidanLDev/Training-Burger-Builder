@@ -114,7 +114,7 @@ class ContactData extends Component {
         const updatedFormElement = {...updatedOrderForm[inputId]};   //  Updated input
 
         updatedFormElement.value = event.target.value;
-        updatedFormElement.valid = this.validationCheck(updatedFormElement.value, updatedFormElement.validation) //  Passing current form value and validation rules to validation check method
+        updatedFormElement.valid = this.validationCheck(updatedFormElement.value, updatedFormElement.validation) //  Passing current form value and validation rules to validation check method 
         console.log(updatedFormElement)
         updatedOrderForm[inputId] = updatedFormElement
         this.setState({orderForm: updatedOrderForm})
