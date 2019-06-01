@@ -83,10 +83,13 @@ class ContactData extends Component {
                         {value: 'fastest', displayValue: 'Fastest'},
                         {value: 'cheapest', displayValue: 'Cheapest'}]
                 },
-                value: '',
+                value: 'fastest',
+                validation: {},
+                valid: true
             }
         },
-        loading: false,
+        formIsValid: false,
+        loading: false
     }
 
     handleOrder = (event) => {
@@ -121,9 +124,14 @@ class ContactData extends Component {
         updatedFormElement.value = event.target.value;
         updatedFormElement.valid = this.validationCheck(updatedFormElement.value, updatedFormElement.validation) //  Passing current form value and validation rules to validation check method 
         updatedFormElement.touched = true;
-        console.log(updatedFormElement)
         updatedOrderForm[inputId] = updatedFormElement
-        this.setState({orderForm: updatedOrderForm})
+
+        let formIsValid = true;
+        for (let inputId in updatedOrderForm) {
+            formIsValid = updatedOrderForm[inputId].valid && formIsValid
+        }
+
+        this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid})
     }
 
     validationCheck = (value, rules) => {
@@ -165,7 +173,7 @@ class ContactData extends Component {
                         changed={(event) => this.handleInputChange(event, formElement.id)}
                     />
                 ))}
-                <Button btnType="success" clicked={this.handleOrder}>ORDER</Button>
+                <Button btnType="success" disabled={!this.state.formIsValid} clicked={this.handleOrder}>ORDER</Button>
             </form>
         );
         if (this.state.loading) {

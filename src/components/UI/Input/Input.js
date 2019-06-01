@@ -27,7 +27,6 @@ const input = (props) => {
     default:
       inputElement = <input onChange={props.changed} className={inputClass.join(' ')} {...props.elementConfig} value={props.value} />
   }
-  console.log(props)
 
   //  Validation message
   let validationError = null;
