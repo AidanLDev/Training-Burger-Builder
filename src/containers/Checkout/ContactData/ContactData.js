@@ -5,6 +5,7 @@ import axios from '../../../axios-orders'
 import Input from '../../../components/UI/Input/Input'
 import Button from '../../../components/UI/Button/Button'
 import Spinner from '../../../components/UI/Spinner/Spinner'
+import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler'
 import styles from './contactData.css';
 
 class ContactData extends Component {
@@ -95,7 +96,7 @@ class ContactData extends Component {
 
     handleOrder = (event) => {
         event.preventDefault()
-        this.setState({loading: true})
+        
 
         const formData = {};
         for (let formElementId in this.state.orderForm) {
@@ -103,19 +104,10 @@ class ContactData extends Component {
         }
 
         const order = {
-        ingredients: this.props.ings,
-        price: this.props.price,
-        orderData: formData
+            ingredients: this.props.ings,
+            price: this.props.price,
+            orderData: formData
         }
-
-        axios.post('/orders.json', order)
-        .then(res => {
-        this.setState({loading: false})
-        this.props.history.push('/')
-        })
-        .catch(error => {
-        this.setState({loading: false})
-        })
     }
 
     handleInputChange = (event, inputId) => {
@@ -197,4 +189,11 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(ContactData)
+const mapDispatchToProps = dispatch => {
+    return {
+        onOrderBurger: () => dispatch()
+    }
+    
+}
+
+export default connect(mapStateToProps)(withErrorHandler(ContactData, axios))

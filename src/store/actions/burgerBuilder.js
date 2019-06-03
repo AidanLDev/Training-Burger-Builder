@@ -22,11 +22,11 @@ export const setIngredients = (ingredients) => {
     }
 }
 
-// export const fetchIngredeintsFailed = () => {
-//     return {
-//         type: actionTypes.FETCH_INGREDIENTS_FAILED
-//     }
-// }
+export const fetchIngredeintsFailed = () => {
+    return {
+        type: actionTypes.FETCH_INGREDIENTS_FAILED
+    }
+}
 
 export const initIngredients = () => {
     return dispatch => {
@@ -35,9 +35,8 @@ export const initIngredients = () => {
             console.log('(burgerBuilder actions) ', response)
             dispatch(setIngredients(response.data));
         })
-        .catch((error) => console.log('(burgerBuilder actions) catch ', error))
-        // .catch(error => {
-        //     dispatch(fetchIngredeintsFailed())
-        // })
+        .catch(error => {
+            dispatch(fetchIngredeintsFailed())
+        })
     }
 }
