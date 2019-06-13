@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './Order.css';
+import classes from './order.css';
 
 const order = ( props ) => {
     const ingredients = [];
