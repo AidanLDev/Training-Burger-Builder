@@ -1,9 +1,0 @@
-
-dist/*
-dev_resources/**
-node_modules/*
-**/node_modules/*
-src/polyfill
-src/resources/*
-src/polyfills.js
-src/registerServiceWorker.js
