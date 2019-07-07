@@ -112,6 +112,7 @@ class Auth extends Component {
 
         return (
             <div className={classes.Auth}>
+                <h1>{this.state.isSignup ? 'Sign Up' : 'Welcome back'}</h1>
                 {authRedirect}
                 {errorMessage}
                 <form onSubmit={this.submitHandler}>
