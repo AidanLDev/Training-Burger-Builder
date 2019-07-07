@@ -7,16 +7,16 @@ import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import Logout from './containers/Auth/Logout/Logout';
 import * as actions from './store/actions/index';
 
-const Checkout = React.lazy(() => {
-  return import('./containers/Checkout/Checkout');
+const Orders = React.lazy(() => {
+  return require('./containers/Orders/Orders');
 });
 
-const Orders = React.lazy(() => {
-  return import('./containers/Orders/Orders');
+const Checkout = React.lazy(() => {
+  return require('./containers/Checkout/Checkout');
 });
 
 const Auth = React.lazy(() => {
-  return import('./containers/Auth/Auth');
+  return require('./containers/Auth/Auth');
 });
 
 const app = props => {
