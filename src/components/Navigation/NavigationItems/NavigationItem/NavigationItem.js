@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import classes from './navigationItem.css';
+import classes from './NavigationItem.css';
 
 const navigationItem = ( props ) => (
     <li className={classes.NavigationItem}>

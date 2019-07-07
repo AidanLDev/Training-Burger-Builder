@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Aux from '../../hoc/Auxilary';
+import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
@@ -11,7 +11,11 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../store/actions/index';
 import axios from '../../axios-orders';
 
-export class BurgerBuilder extends Component {
+class BurgerBuilder extends Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {...}
+    // }
     state = {
         purchasing: false
     }
@@ -32,18 +36,18 @@ export class BurgerBuilder extends Component {
     }
 
     purchaseHandler = () => {
-        if (this.props.isAuth) {
+        if (this.props.isAuthenticated) {
             this.setState( { purchasing: true } );
         } else {
-            this.props.onSetAuthRedirectPath('/checkout')
-            this.props.history.push('/auth')
+            this.props.onSetAuthRedirectPath('/checkout');
+            this.props.history.push('/auth');
         }
     }
 
     purchaseCancelHandler = () => {
         this.setState( { purchasing: false } );
     }
-    //  this.props.onSetAuthRedirectPath('/checkout')
+
     purchaseContinueHandler = () => {
         this.props.onInitPurchase();
         this.props.history.push('/checkout');
@@ -69,9 +73,8 @@ export class BurgerBuilder extends Component {
                         disabled={disabledInfo}
                         purchasable={this.updatePurchaseState(this.props.ings)}
                         ordered={this.purchaseHandler}
-                        price={this.props.price} 
-                        isAuth={this.props.isAuth}
-                    />
+                        isAuth={this.props.isAuthenticated}
+                        price={this.props.price} />
                 </Aux>
             );
             orderSummary = <OrderSummary
@@ -97,7 +100,7 @@ const mapStateToProps = state => {
         ings: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.totalPrice,
         error: state.burgerBuilder.error,
-        isAuth: state.auth.token !== null,
+        isAuthenticated: state.auth.token !== null
     };
 }
 

@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
-import classes from './contactData.css';
+import classes from './ContactData.css';
 import axios from '../../../axios-orders';
 import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../../store/actions/index';
-import { updateObject } from '../../../util/utility'
-import { checkValidity } from '../../../util/validation'
+import { updateObject, checkValidity } from '../../../shared/utility';
 
 class ContactData extends Component {
     state = {
@@ -118,16 +117,15 @@ class ContactData extends Component {
     }
 
     inputChangedHandler = (event, inputIdentifier) => {
-
-        const updatedFormElement =  updateObject(this.state.orderForm[inputIdentifier], {
+        
+        const updatedFormElement = updateObject(this.state.orderForm[inputIdentifier], {
             value: event.target.value,
-            valid: checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation) ,
-            touched: true,
-        })
-
+            valid: checkValidity(event.target.value, this.state.orderForm[inputIdentifier].validation),
+            touched: true
+        });
         const updatedOrderForm = updateObject(this.state.orderForm, {
             [inputIdentifier]: updatedFormElement
-        })
+        });
         
         let formIsValid = true;
         for (let inputIdentifier in updatedOrderForm) {
