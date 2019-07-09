@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {  } from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../../../components/UI/Button/Button';
@@ -10,7 +10,7 @@ import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../../store/actions/index';
 import { updateObject, checkValidity } from '../../../shared/utility';
 
-class ContactData extends Component {
+const contactData = props => {
     state = {
         orderForm: {
             name: {
@@ -134,7 +134,6 @@ class ContactData extends Component {
         this.setState({orderForm: updatedOrderForm, formIsValid: formIsValid});
     }
 
-    render () {
         const formElementsArray = [];
         for (let key in this.state.orderForm) {
             formElementsArray.push({
@@ -168,7 +167,6 @@ class ContactData extends Component {
             </div>
         );
     }
-}
 
 const mapStateToProps = state => {
     return {
@@ -186,4 +184,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(ContactData, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(contactData, axios));
