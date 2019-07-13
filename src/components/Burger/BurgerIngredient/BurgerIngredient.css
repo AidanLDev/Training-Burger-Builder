@@ -76,6 +76,9 @@
   background: linear-gradient(#228c1d, #91ce50);
   margin: 1px auto;
   border-radius: 20px;
+  animation-duration: 1s;
+  /* animation-name: slidein; */
+  overflow: hidden;
 }
 
 .Cheese {
@@ -109,3 +112,12 @@
   box-shadow: inset -10px 0 #c15711;
   border-radius: 0 0 20px 20px;
 }
+
+/* Animation */
+
+/* @keyframes slidein {
+  from {
+    margin-bottom: 100%;
+
+  }
+} */
