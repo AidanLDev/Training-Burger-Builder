@@ -112,7 +112,7 @@ const auth = props => {
 
         return (
             <div className={classes.Auth}>
-                <h1>{isSignup ? 'Sign Up' : 'Welcome back'}</h1>
+                <h1>{isSignup ? 'Sign Up' : 'Welcome Back'}</h1>
                 {authRedirect}
                 {errorMessage}
                 <form onSubmit={submitHandler}>
