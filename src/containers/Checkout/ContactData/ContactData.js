@@ -38,35 +38,35 @@ const contactData = props => {
                 valid: false,
                 touched: false
             },
-            zipCode: {
+            postCode: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'ZIP Code'
+                    placeholder: 'Post Code'
                 },
                 value: '',
                 validation: {
                     required: true,
-                    minLength: 5,
-                    maxLength: 5,
-                    isNumeric: true
+                    minLength: 6,
+                    maxLength: 8,
+                    isPostCode: true,
                 },
                 valid: false,
                 touched: false
             },
-            country: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Country'
-                },
-                value: '',
-                validation: {
-                    required: true
-                },
-                valid: false,
-                touched: false
-            },
+            // country: {
+            //     elementType: 'input',
+            //     elementConfig: {
+            //         type: 'text',
+            //         placeholder: 'Country'
+            //     },
+            //     value: '',
+            //     validation: {
+            //         required: true
+            //     },
+            //     valid: false,
+            //     touched: false
+            // },
             email: {
                 elementType: 'input',
                 elementConfig: {
