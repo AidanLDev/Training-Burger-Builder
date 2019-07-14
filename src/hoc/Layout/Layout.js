@@ -6,6 +6,7 @@ import classes from './Layout.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Toast from '../../components/UI/Toast/Toast';
+import * as actions from '../../store/actions/index';
 
 const layout = props => {
     const [showSideDrawer, setSideDrawer] = useState(false);
@@ -18,6 +19,11 @@ const layout = props => {
 
     const sideDrawerToggleHandler = () => {
         setSideDrawer(!showSideDrawer)
+    }
+
+    const dismissToast = () => {
+        console.log('clicked')
+        props.onDismissToast()
     }
 
         return (
@@ -33,9 +39,10 @@ const layout = props => {
                     {props.children}
                   
                     {props.showToast
-                    ? <Toast
+                    ? <div onClick={dismissToast}><Toast
                         level={props.showToast}
-                    /> : null}
+                        canDismiss
+                    /></div> : null}
                 </main>
             </Aux>
         )
@@ -48,4 +55,10 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect( mapStateToProps )( layout );
+const mapDispatchToProps = dispatch => {
+    return {
+        onDismissToast: () => dispatch(actions.dismissToast)
+    }
+}
+
+export default connect( mapStateToProps, mapDispatchToProps )( layout );

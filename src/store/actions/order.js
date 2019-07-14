@@ -82,3 +82,9 @@ export const fetchOrders = (token, userId) => {
             } );
     };
 };
+
+export const dismissToast = () => {
+    return {
+        type: actionTypes.DISMISS_TOAST
+    };
+}

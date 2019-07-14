@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import style from './Toast.css';
+import styles from './Toast.css';
 
 const toast = props => {
 
@@ -11,7 +11,7 @@ const toast = props => {
   //   }
   // }
 
-  const generalStyles = {
+  const baseStyle = {
     margin: 'auto',
     height: '8%',
     width: '30%',
@@ -20,12 +20,20 @@ const toast = props => {
     left: '40%'
   }
 
-  const style = props.level === 'SUCCESS' ? {backgroundColor: 'green', ...generalStyles} : {backgroundColor: 'red', ...generalStyles}
+  let style;
+  switch(props.level) {
+    case 'SUCCESS': style = {...baseStyle, backgroundColor: 'green', color: 'white'};
+      break;
+    case 'DANGER': style = {...baseStyle, backgroundColor: 'red', color: 'white'}
+      break;
+    default: style = {...baseStyle, backgroundColor: 'black', color: 'white'}
+  }
 
 
   return (
-    <div className={props.ToastWrapper} style={style}>
+    <div className={styles.ToastWrapper} style={style}>
       {props.level}
+      {props.canDismiss ? <button>Dismiss</button> : null}
     </div>
   )
 }
