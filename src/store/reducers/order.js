@@ -4,7 +4,8 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
     orders: [],
     loading: false,
-    purchased: false
+    purchased: false,
+    showToast: false,
 };
 
 const purchaseInit = ( state, action ) => {
@@ -20,6 +21,7 @@ const purchaseBurgerSuccess = ( state, action ) => {
     return updateObject( state, {
         loading: false,
         purchased: true,
+        showToast: 'SUCCESS',
         orders: state.orders.concat( newOrder )
     } );
 };
