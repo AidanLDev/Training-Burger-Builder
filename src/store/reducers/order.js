@@ -5,7 +5,7 @@ const initialState = {
     orders: [],
     loading: false,
     purchased: false,
-    showToast: false,
+    // showToast: false,
 };
 
 const purchaseInit = ( state, action ) => {
@@ -21,7 +21,7 @@ const purchaseBurgerSuccess = ( state, action ) => {
     return updateObject( state, {
         loading: false,
         purchased: true,
-        showToast: 'SUCCESS',
+        // showToast: 'SUCCESS',
         orders: state.orders.concat( newOrder )
     } );
 };

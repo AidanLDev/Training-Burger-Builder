@@ -15,3 +15,6 @@ export {
     setAuthRedirectPath,
     authCheckState
 } from './auth';
+export {
+    successToast
+} from './utils'

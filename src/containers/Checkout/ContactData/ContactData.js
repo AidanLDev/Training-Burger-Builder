@@ -12,53 +12,11 @@ import { updateObject, checkValidity } from '../../../shared/utility';
 
 const contactData = props => {
     const [orderForm, setOrderForm] = useState({
-            name: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Your Name'
-                },
-                value: '',
-                validation: {
-                    required: true
-                },
-                valid: false,
-                touched: false
-            },
-            street: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Street'
-                },
-                value: '',
-                validation: {
-                    required: true
-                },
-                valid: false,
-                touched: false
-            },
-            postCode: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Post Code'
-                },
-                value: '',
-                validation: {
-                    required: true,
-                    minLength: 6,
-                    maxLength: 8,
-                    isPostCode: true,
-                },
-                valid: false,
-                touched: false
-            },
-            // country: {
+            // name: {
             //     elementType: 'input',
             //     elementConfig: {
             //         type: 'text',
-            //         placeholder: 'Country'
+            //         placeholder: 'Your Name'
             //     },
             //     value: '',
             //     validation: {
@@ -67,20 +25,62 @@ const contactData = props => {
             //     valid: false,
             //     touched: false
             // },
-            email: {
+            // street: {
+            //     elementType: 'input',
+            //     elementConfig: {
+            //         type: 'text',
+            //         placeholder: 'Street'
+            //     },
+            //     value: '',
+            //     validation: {
+            //         required: true
+            //     },
+            //     valid: false,
+            //     touched: false
+            // },
+            // postCode: {
+            //     elementType: 'input',
+            //     elementConfig: {
+            //         type: 'text',
+            //         placeholder: 'Post Code'
+            //     },
+            //     value: '',
+            //     validation: {
+            //         required: true,
+            //         minLength: 6,
+            //         maxLength: 8,
+            //         isPostCode: true,
+            //     },
+            //     valid: false,
+            //     touched: false
+            // },
+            country: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'email',
-                    placeholder: 'Your E-Mail'
+                    type: 'text',
+                    placeholder: 'Country'
                 },
                 value: '',
                 validation: {
-                    required: true,
-                    isEmail: true
+                    required: true
                 },
                 valid: false,
                 touched: false
             },
+            // email: {
+            //     elementType: 'input',
+            //     elementConfig: {
+            //         type: 'email',
+            //         placeholder: 'Your E-Mail'
+            //     },
+            //     value: '',
+            //     validation: {
+            //         required: true,
+            //         isEmail: true
+            //     },
+            //     valid: false,
+            //     touched: false
+            // },
             deliveryMethod: {
                 elementType: 'select',
                 elementConfig: {

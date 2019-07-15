@@ -1,12 +1,12 @@
 import * as actionTypes from './actionTypes';
+import { successToast } from './utils'
 import axios from '../../axios-orders';
 
 export const purchaseBurgerSuccess = ( id, orderData ) => {
     return {
         type: actionTypes.PURCHASE_BURGER_SUCCESS,
         orderId: id,
-        orderData: orderData,
-        //  New state for toast
+        orderData: orderData
     };
 };
 
@@ -28,9 +28,11 @@ export const purchaseBurger = ( orderData, token ) => {
         dispatch( purchaseBurgerStart() );
         axios.post( '/orders.json?auth=' + token, orderData )
             .then( response => {
-                dispatch( purchaseBurgerSuccess( response.data.name, orderData ) );
+                dispatch( purchaseBurgerSuccess( response.data.name, orderData ) )
+                dispatch( successToast() )
             } )
             .catch( error => {
+                console.log(error)
                 dispatch( purchaseBurgerFail( error ) );
             } );
     };

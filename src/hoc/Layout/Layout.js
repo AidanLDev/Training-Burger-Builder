@@ -51,7 +51,7 @@ const layout = props => {
 const mapStateToProps = state => {
     return {
         isAuthenticated: state.auth.token !== null,
-        showToast: state.order.showToast
+        showToast: state.util.showToast
     };
 };
 
