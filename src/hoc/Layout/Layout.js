@@ -21,10 +21,6 @@ const layout = props => {
         setSideDrawer(!showSideDrawer)
     }
 
-    const dismissToast = () => {
-        console.log('clicked')
-        props.onDismissToast()
-    }
 
         return (
             <Aux>
@@ -38,11 +34,7 @@ const layout = props => {
                 <main className={classes.Content}>
                     {props.children}
                   
-                    {props.showToast
-                    ? <div onClick={dismissToast}><Toast
-                        level={props.showToast}
-                        canDismiss
-                    /></div> : null}
+                    {props.showToast ? <Toast /> : null}
                 </main>
             </Aux>
         )

@@ -6,8 +6,7 @@ export {
 export {
     purchaseBurger,
     purchaseInit,
-    fetchOrders,
-    dismissToast
+    fetchOrders
 } from './order';
 export {
     auth,
@@ -16,5 +15,6 @@ export {
     authCheckState
 } from './auth';
 export {
-    successToast
+    successToast,
+    dismissToast
 } from './utils'

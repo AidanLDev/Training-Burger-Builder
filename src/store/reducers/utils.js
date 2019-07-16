@@ -3,11 +3,17 @@ import { updateObject } from '../../shared/utility';
 
 const initialState = {
   showToast: false,
-
+  level: '',
+  toastMessage: ''
 };
 
-const displayToast = ( state, action ) => {
-  return updateObject( state, { showToast: true } );
+const displayToastSuccess = ( state, action ) => {
+  return updateObject( state, {
+      showToast: true,
+      level: 'SUCCESS',
+      message: action.text + action.data || 'Success'
+    } 
+  );
 };
 
 const dismissToast = ( state, action ) => {
@@ -16,7 +22,7 @@ const dismissToast = ( state, action ) => {
 
 const reducer = ( state = initialState, action ) => {
   switch ( action.type ) {
-      case actionTypes.UTIL_SUCCESS_TOAST: return displayToast( state, action );
+      case actionTypes.UTIL_SUCCESS_TOAST: return displayToastSuccess( state, action );
       case actionTypes.UTIL_DISMISS_TOAST: return dismissToast( state, action );
       default: return state;
   }

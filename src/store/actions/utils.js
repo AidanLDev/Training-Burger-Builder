@@ -1,8 +1,10 @@
 import * as actionTypes from './actionTypes';
 
-export const successToast = () => {
+export const successToast = (data, text) => {
   return {
-      type: actionTypes.UTIL_SUCCESS_TOAST
+      type: actionTypes.UTIL_SUCCESS_TOAST,
+      data: data,
+      text: text
   }
 }
 
