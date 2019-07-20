@@ -1,5 +1,5 @@
 .ToastWrapper {
-  border: 2px solid black;
+  border: 1px solid #ccc;
   margin: auto;
   height: 10%;
   width: 80%;
@@ -8,8 +8,8 @@
   left: 10%;
   color: white;
   border-radius: 50px 50px 0px 0px;
-  transition: all 2s ease-out;
-  transform: translateY(0);
+  transition: all 0.3s ease-out;
+  box-shadow: 1px 1px 1px black;
 }
 
 .ToastText {

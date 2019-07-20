@@ -5,14 +5,18 @@ import * as actions from '../../../store/actions/index';
 import styles from './Toast.css';
 
 const toast = props => {
-
   let style;
+
+  const baseStyle = props.showToast
+  ? {transform: 'translateY(0)', opacity: '1'} 
+  : {transform: 'translateY(-100vh)', opacity: '0'}
+
   switch(props.level) {
-    case 'SUCCESS': style = {backgroundColor: 'green', color: 'white'};
+    case 'SUCCESS': style = {...baseStyle, backgroundColor: 'green', color: 'white'};
       break;
-    case 'DANGER': style = {backgroundColor: 'red', color: 'white'}
+    case 'DANGER': style = {...baseStyle, backgroundColor: 'red', color: 'white'}
       break;
-    default: style = {backgroundColor: 'black', color: 'white'}
+    default: style = {...baseStyle, backgroundColor: 'black', color: 'white'}
   }
 
   if (props.dissmissableToast) {
@@ -33,7 +37,8 @@ const mapStateToProps = state => {
   return {
     level: state.util.level,
     toastMessage: state.util.message,
-    dissmissableToast: state.util.dissToast
+    dissmissableToast: state.util.dissToast,
+    showToast: state.util.showToast
   }
   
 }
