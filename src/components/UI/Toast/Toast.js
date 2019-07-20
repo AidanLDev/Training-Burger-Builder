@@ -15,11 +15,15 @@ const toast = props => {
     default: style = {backgroundColor: 'black', color: 'white'}
   }
 
+  if (props.dissmissableToast) {
+    setTimeout(() => props.onDismissToast(), 3000)
+  }
+
 
   return (
     <div className={styles.ToastWrapper} style={style}>
-      <p>{props.toastMessage}</p>
-      {<button onClick={() => props.onDismissToast()} className={styles.ButtonStyles}>Dismiss</button>}
+      <p className={styles.ToastText}>{props.toastMessage}</p>
+      {!props.dissmissableToast ? <button onClick={() => props.onDismissToast()} className={styles.ButtonStyles}>Dismiss</button> : null}
       
     </div>
   )
@@ -28,7 +32,8 @@ const toast = props => {
 const mapStateToProps = state => {
   return {
     level: state.util.level,
-    toastMessage: state.util.message
+    toastMessage: state.util.message,
+    dissmissableToast: state.util.dissToast
   }
   
 }

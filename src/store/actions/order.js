@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import { successToast } from './utils'
+import { displayToast } from './utils'
 import axios from '../../axios-orders';
 
 export const purchaseBurgerSuccess = ( id, orderData ) => {
@@ -29,7 +29,7 @@ export const purchaseBurger = ( orderData, token ) => {
         axios.post( '/orders.json?auth=' + token, orderData )
             .then( response => {
                 dispatch( purchaseBurgerSuccess( response.data.name, orderData ) )
-                dispatch( successToast(orderData.orderData.country, 'Burger successfully ordered to destination: ') )
+                dispatch( displayToast(`Thanks ${orderData.orderData.name}! Successfully ordered to : ${orderData.orderData.street}, ${orderData.orderData.postCode}, ${orderData.orderData.country} total price £${orderData.price}0`, 'SUCCESS', true) )
             } )
             .catch( error => {
                 console.log(error)
