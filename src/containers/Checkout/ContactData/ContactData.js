@@ -54,19 +54,19 @@ const contactData = props => {
                 valid: false,
                 touched: false
             },
-            // country: {
-            //     elementType: 'input',
-            //     elementConfig: {
-            //         type: 'text',
-            //         placeholder: 'Country'
-            //     },
-            //     value: '',
-            //     validation: {
-            //         required: true
-            //     },
-            //     valid: false,
-            //     touched: false
-            // },
+            country: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Country'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
             email: {
                 elementType: 'input',
                 elementConfig: {

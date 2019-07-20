@@ -4,7 +4,7 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
     orders: [],
     loading: false,
-    purchased: false
+    purchased: false,
 };
 
 const purchaseInit = ( state, action ) => {
@@ -43,6 +43,12 @@ const fetchOrdersFail = ( state, action ) => {
     return updateObject( state, { loading: false } );
 };
 
+const dismissToast = ( state, action ) => {
+    return updateObject(state, {
+        showToast: false
+    })
+}
+
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
         case actionTypes.PURCHASE_INIT: return purchaseInit( state, action );
@@ -52,6 +58,7 @@ const reducer = ( state = initialState, action ) => {
         case actionTypes.FETCH_ORDERS_START: return fetchOrdersStart( state, action );
         case actionTypes.FETCH_ORDERS_SUCCESS: return fetchOrdersSuccess( state, action );
         case actionTypes.FETCH_ORDERS_FAIL: return fetchOrdersFail( state, action );
+        case actionTypes.DISMISS_TOAST: return dismissToast( state, action);
         default: return state;
     }
 };

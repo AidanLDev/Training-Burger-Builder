@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import { displayToast } from './utils'
 import axios from '../../axios-orders';
 
 export const purchaseBurgerSuccess = ( id, orderData ) => {
@@ -27,9 +28,11 @@ export const purchaseBurger = ( orderData, token ) => {
         dispatch( purchaseBurgerStart() );
         axios.post( '/orders.json?auth=' + token, orderData )
             .then( response => {
-                dispatch( purchaseBurgerSuccess( response.data.name, orderData ) );
+                dispatch( purchaseBurgerSuccess( response.data.name, orderData ) )
+                dispatch( displayToast(`Thanks ${orderData.orderData.name}! Successfully ordered to : ${orderData.orderData.street}, ${orderData.orderData.postCode}, ${orderData.orderData.country} total price £${orderData.price}0`, 'SUCCESS', true) )
             } )
             .catch( error => {
+                console.log(error)
                 dispatch( purchaseBurgerFail( error ) );
             } );
     };
@@ -81,3 +84,9 @@ export const fetchOrders = (token, userId) => {
             } );
     };
 };
+
+export const dismissToast = () => {
+    return {
+        type: actionTypes.DISMISS_TOAST
+    };
+}

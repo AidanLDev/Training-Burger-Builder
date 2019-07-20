@@ -1,0 +1,30 @@
+.ToastWrapper {
+  border: 1px solid #ccc;
+  margin: auto;
+  height: 10%;
+  width: 80%;
+  position: fixed;
+  bottom: 10%;
+  left: 10%;
+  color: white;
+  border-radius: 50px 50px 0px 0px;
+  transition: all 0.3s ease-out;
+  box-shadow: 1px 1px 1px black;
+}
+
+.ToastText {
+  padding-left: 20px;
+}
+
+.ButtonStyles {
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: auto;
+  font-weight: bold;
+  width:100%;
+}
