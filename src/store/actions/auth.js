@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import * as actionTypes from './actionTypes';
+import { displayToast } from './utils'
 
 export const authStart = () => {
     return {
@@ -15,6 +16,14 @@ export const authSuccess = (token, userId) => {
         userId: userId
     };
 };
+
+export const authSuccessToast = (userName, isSignup) => {
+    const isSignUpMessage = 'Welcome';
+    const signInMessage = 'Welcome back'
+    return dispatch => {
+        dispatch(displayToast(`${isSignup ? isSignUpMessage : signInMessage} ${userName}`, 'SUCCESS', true))
+    }
+}
 
 export const authFail = (error) => {
     return {
@@ -60,6 +69,7 @@ export const auth = (email, password, isSignup) => {
                 localStorage.setItem('userId', response.data.localId);
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
                 dispatch(checkAuthTimeout(response.data.expiresIn));
+                dispatch(authSuccessToast(email, isSignup))
             })
             .catch(err => {
                 // dispatch(authFail(err.response.data.error));

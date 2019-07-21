@@ -1,5 +1,5 @@
 .ToastWrapper {
-  border: 1px solid #ccc;
+  border: 1px solid black;
   margin: auto;
   height: 10%;
   width: 80%;
@@ -14,6 +14,7 @@
 
 .ToastText {
   padding-left: 20px;
+  text-align: center;
 }
 
 .ButtonStyles {

@@ -4,15 +4,15 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
   showToast: false,
   level: '',
-  toastMessage: '',
+  message: '',
   dissToast: false
 };
 
 const displayToast = ( state, action ) => {
   return updateObject( state, {
       showToast: true,
-      level: action.level, /*  action.level  */
-      message: action.text || 'Success',
+      level: action.level,
+      message:  action.text || 'Success',
       dissToast: action.dissToast
     } 
   );
