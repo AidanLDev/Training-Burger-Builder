@@ -16,7 +16,8 @@ const contactData = props => {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Your Name'
+                    placeholder: 'Your Name',
+                    errorMessage: 'Please enter your name'
                 },
                 value: '',
                 validation: {
@@ -29,7 +30,8 @@ const contactData = props => {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Street'
+                    placeholder: 'Street',
+                    errorMessage: 'Please enter a street name'
                 },
                 value: '',
                 validation: {
@@ -42,7 +44,8 @@ const contactData = props => {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Post Code'
+                    placeholder: 'Post Code',
+                    errorMessage: 'Please enter a valid post code'
                 },
                 value: '',
                 validation: {
@@ -58,7 +61,8 @@ const contactData = props => {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Country'
+                    placeholder: 'Country',
+                    errorMessage: 'Please enter a country'
                 },
                 value: '',
                 validation: {
@@ -71,7 +75,8 @@ const contactData = props => {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
-                    placeholder: 'Your E-Mail'
+                    placeholder: 'Your E-Mail',
+                    errorMessage: 'Please enter your email address'
                 },
                 value: '',
                 validation: {
@@ -84,6 +89,7 @@ const contactData = props => {
             deliveryMethod: {
                 elementType: 'select',
                 elementConfig: {
+                    placeholder: 'Delivery Method',
                     options: [
                         {value: 'fastest', displayValue: 'Fastest'},
                         {value: 'cheapest', displayValue: 'Cheapest'}
@@ -151,7 +157,10 @@ const contactData = props => {
                         invalid={!formElement.config.valid}
                         shouldValidate={formElement.config.validation}
                         touched={formElement.config.touched}
-                        changed={(event) => inputChangedHandler(event, formElement.id)} />
+                        changed={(event) => inputChangedHandler(event, formElement.id)}
+                        errorMessage={formElement.config.elementConfig.errorMessage}
+                        label={formElement.config.elementConfig.placeholder}
+                    />
                 ))}
                 <Button btnType="Success" disabled={!formIsValid}>ORDER</Button>
             </form>
