@@ -12,7 +12,7 @@ const toast = props => {
   : {transform: 'translateY(-100vh)', opacity: '0'}
 
   switch(props.level) {
-    case 'SUCCESS': style = {...baseStyle, backgroundColor: 'green', color: 'white'};
+    case 'SUCCESS': style = {...baseStyle, background:'linear-gradient(#17ca45, #075f1e)', color: 'white'};
       break;
     case 'DANGER': style = {...baseStyle, backgroundColor: 'red', color: 'white'}
       break;
