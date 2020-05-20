@@ -1,13 +1,13 @@
 .ToastWrapper {
   border: 1px solid #ccc;
   margin: auto;
-  height: 10%;
-  width: 80%;
+  height: 5%;
+  width: 70%;
   position: fixed;
   bottom: 5%;
-  left: 10%;
+  left: 15%;
   color: white;
-  border-radius: 50px 50px 0px 0px;
+  border-radius: 25px 25px 0px 0px;
   transition: all 0.3s ease-out;
   box-shadow: 1px 1px 1px #ccc;
 }
@@ -27,5 +27,5 @@
   padding: 10px;
   margin: auto;
   font-weight: bold;
-  width:100%;
+  width: 100%;
 }
